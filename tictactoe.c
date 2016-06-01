@@ -130,18 +130,6 @@ int main()
             break;
         }
 
-
-<<<<<<< HEAD
-        if (i % 2 == 0){            
-			posicao = 11;
-			while ((posicao >10 ) || (posicao < 0))
-				{           	
-				printf("Jogada do jogador X:\n");
-            	scanf("%d", &posicao);
-            	grade[posicao] = 'X';
-        	}    
-		}
-=======
         if (i % 2 == 0)
 	{            
             	cont = 0;
@@ -162,11 +150,8 @@ int main()
 			}
 		}
             
-        }     
->>>>>>> 4ca74c85858066880efadc0974d489d588dc4300
-        
-        
-        
+        }         
+               
         
         if ((final == 0) && (i != 8))
         {
