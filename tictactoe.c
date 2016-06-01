@@ -3,36 +3,36 @@
 int posimax, posimin;
 
 
-void print_grade(char b[9])
+void print_grade(char b[10])
 {
-    printf("%c|%c|%c\n",b[0],b[1],b[2]);
+    printf("%c|%c|%c\n",b[1],b[2],b[3]);
   
-    printf("%c|%c|%c\n",b[3],b[4],b[5]);
+    printf("%c|%c|%c\n",b[4],b[5],b[6]);
     
-    printf("%c|%c|%c\n",b[6],b[7],b[8]);
+    printf("%c|%c|%c\n",b[7],b[8],b[9]);
 }
 
 int checaVitoria(char grade[])
 {
-    if ((grade[0] == 'X' && grade[1] == 'X' && grade[2] == 'X') ||
-        (grade[3] == 'X' && grade[4] == 'X' && grade[5] == 'X') ||
-        (grade[6] == 'X' && grade[7] == 'X' && grade[8] == 'X') ||
-        (grade[0] == 'X' && grade[3] == 'X' && grade[6] == 'X') ||
+    if ((grade[1] == 'X' && grade[2] == 'X' && grade[3] == 'X') ||
+        (grade[4] == 'X' && grade[5] == 'X' && grade[6] == 'X') ||
+        (grade[7] == 'X' && grade[8] == 'X' && grade[9] == 'X') ||
         (grade[1] == 'X' && grade[4] == 'X' && grade[7] == 'X') ||
         (grade[2] == 'X' && grade[5] == 'X' && grade[8] == 'X') ||
-        (grade[0] == 'X' && grade[4] == 'X' && grade[8] == 'X') ||
-        (grade[2] == 'X' && grade[4] == 'X' && grade[6] == 'X'))
+        (grade[3] == 'X' && grade[6] == 'X' && grade[9] == 'X') ||
+        (grade[1] == 'X' && grade[5] == 'X' && grade[9] == 'X') ||
+        (grade[3] == 'X' && grade[5] == 'X' && grade[7] == 'X'))
     {
         return 1;
     }
-    else if((grade[0] == 'O' && grade[1] == 'O' && grade[2] == 'O') ||
-            (grade[3] == 'O' && grade[4] == 'O' && grade[5] == 'O') ||
-            (grade[6] == 'O' && grade[7] == 'O' && grade[8] == 'O') ||
-            (grade[0] == 'O' && grade[3] == 'O' && grade[6] == 'O') ||
+    else if((grade[1] == 'O' && grade[2] == 'O' && grade[3] == 'O') ||
+            (grade[4] == 'O' && grade[5] == 'O' && grade[6] == 'O') ||
+            (grade[7] == 'O' && grade[8] == 'O' && grade[9] == 'O') ||
             (grade[1] == 'O' && grade[4] == 'O' && grade[7] == 'O') ||
             (grade[2] == 'O' && grade[5] == 'O' && grade[8] == 'O') ||
-            (grade[0] == 'O' && grade[4] == 'O' && grade[8] == 'O') ||
-            (grade[2] == 'O' && grade[4] == 'O' && grade[6] == 'O'))
+            (grade[3] == 'O' && grade[6] == 'O' && grade[9] == 'O') ||
+            (grade[1] == 'O' && grade[5] == 'O' && grade[9] == 'O') ||
+            (grade[3] == 'O' && grade[5] == 'O' && grade[7] == 'O'))
     {
         return -1;
     }
@@ -41,10 +41,10 @@ int checaVitoria(char grade[])
 
 int checaEmpate(char grade[])
 {
-    if ((checaVitoria(grade) == 0) && (grade[0] != ' ') && (grade[1] != ' ') &&
-        (grade[2] != ' ') && (grade[3] != ' ') && (grade[4] != ' ') &&
-        (grade[5] != ' ') && (grade[6] != ' ') && (grade[7] != ' ') &&
-        (grade[8] != ' '))
+    if ((checaVitoria(grade) == 0) && (grade[1] != ' ') && (grade[2] != ' ') &&
+        (grade[3] != ' ') && (grade[4] != ' ') && (grade[5] != ' ') &&
+        (grade[6] != ' ') && (grade[7] != ' ') && (grade[8] != ' ') &&
+        (grade[9] != ' '))
     {
         return 1;
     }
@@ -132,11 +132,14 @@ int main()
 
 
         if (i % 2 == 0){            
-            printf("Jogada do jogador X:\n");
-            scanf("%d", &posicao);
-            grade[posicao] = 'X';
-            
-        }     
+			posicao = 11;
+			while ((posicao >10 ) || (posicao < 0))
+				{           	
+				printf("Jogada do jogador X:\n");
+            	scanf("%d", &posicao);
+            	grade[posicao] = 'X';
+        	}    
+		}
         
         
         
