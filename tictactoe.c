@@ -131,10 +131,25 @@ int main()
         }
 
 
-        if (i % 2 == 0){            
-            printf("Jogada do jogador X:\n");
-            scanf("%d", &posicao);
-            grade[posicao] = 'X';
+        if (i % 2 == 0)
+	{            
+            	cont = 0;
+
+		while ( cont != 1)
+		{
+			printf("Jogada do jogador X:\n");
+			scanf("%d", &posicao);
+
+			if(( posicao <= 8) && (posicao >= 0)) 
+			{  
+	   			grade[posicao] = 'X';
+				cont = 1;
+			}
+			else
+			{
+			printf("jogada invalida, tente novamente...\n");
+			}
+		}
             
         }     
         
