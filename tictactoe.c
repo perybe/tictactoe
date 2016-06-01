@@ -107,7 +107,7 @@ int minimax(int player, char grade[], int n)
 
 int main()
 {
-    int i, posicao, final,jogada;
+    int i, posicao, cont, final,jogada;
     char grade[9];
     
     for(i = 0; i < 9; i++)
@@ -131,6 +131,7 @@ int main()
         }
 
 
+<<<<<<< HEAD
         if (i % 2 == 0){            
 			posicao = 11;
 			while ((posicao >10 ) || (posicao < 0))
@@ -140,6 +141,29 @@ int main()
             	grade[posicao] = 'X';
         	}    
 		}
+=======
+        if (i % 2 == 0)
+	{            
+            	cont = 0;
+
+		while ( cont != 1)
+		{
+			printf("Jogada do jogador X:\n");
+			scanf("%d", &posicao);
+
+			if(( posicao <= 8) && (posicao >= 0)) 
+			{  
+	   			grade[posicao] = 'X';
+				cont = 1;
+			}
+			else
+			{
+			printf("jogada invalida, tente novamente...\n");
+			}
+		}
+            
+        }     
+>>>>>>> 4ca74c85858066880efadc0974d489d588dc4300
         
         
         
