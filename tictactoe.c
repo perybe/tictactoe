@@ -107,7 +107,7 @@ int minimax(int player, char grade[], int n)
 
 int main()
 {
-    int i, posicao, final,jogada;
+    int i, posicao, cont, final,jogada;
     char grade[9];
     
     for(i = 0; i < 9; i++)
