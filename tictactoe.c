@@ -59,14 +59,15 @@ int minimax(int player, char grade[], int n)
     int min = 999;
     
     int final = checaVitoria(grade);
-    if (final == 1)
+   
+if (final == 1)
         return 1;
     else if (final == (-1))
         return -1;
     else if (final = checaEmpate(grade))
         return 0;
     
-    for (i = 0; i < 9; i++)
+    for (i = 1; i < 10; i++)
     {
         if(grade[i] == ' ')
         {
@@ -108,15 +109,15 @@ int minimax(int player, char grade[], int n)
 int main()
 {
     int i, posicao, cont, final,jogada;
-    char grade[9];
+    char grade[10];
     
-    for(i = 0; i < 9; i++)
+    for(i = 1; i < 10; i++)
         grade[i] = ' ';
     
     printf("Jogo da Velha:\n");
     print_grade(grade);
     
-    for(i = 0; i < 9; i++)
+    for(i = 1; i < 10; i++)
     {
         final = checaVitoria(grade);
         if (final == 1)
@@ -130,34 +131,36 @@ int main()
             break;
         }
 
-        if (i % 2 == 0)
+        if (i % 2 == 1)
 	{            
             	cont = 0;
+		
 
 		while ( cont != 1)
 		{
 			printf("Jogada do jogador X:\n");
 			scanf("%d", &posicao);
-
-			if(( posicao <= 8) && (posicao >= 0)) 
+			
+		
+			if(( posicao <= 9) && (posicao >= 1) && (grade[posicao] == ' '))
 			{  
 	   			grade[posicao] = 'X';
 				cont = 1;
 			}
-			else
+			else 
 			{
-			printf("jogada invalida, tente novamente...\n");
-			}
+				printf("jogada invalida, tente novamente...\n");
+			}        		
+            		
 		}
-            
         }         
                
         
-        if ((final == 0) && (i != 8))
+        if ((final == 0) && (i != 9))
         {
             posimax = -1;
             posimin = -1;
-            if(i % 2 == 0)
+            if(i % 2 == 1)
             {
                 jogada = minimax(1, grade, 0);
                 //printf("A melhor jogada para o jogador X e: %d\n", posimax);
