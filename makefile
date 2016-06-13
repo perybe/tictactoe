@@ -10,7 +10,7 @@ abrir: tictactoe.c
 organizar: tictactoe.c
 	 astyle tictactoe.c
 
-o: tictactoe.c
+O: tictactoe.c
 	cc -c tictactoe.c 
 
 removeO: 
