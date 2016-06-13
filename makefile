@@ -1,7 +1,7 @@
 tictactoe: tictactoe.c
 	cc -o tictactoe tictactoe.c tic1.c tic2.c tic3.c tic4.c
 
-executar: tictactoe.c
+executar: tictactoe.c	
 	./tictactoe
 
 abrir: tictactoe.c
@@ -17,5 +17,6 @@ removeO:
 	rm tictactoe.o
 	
 removetic:
-	rm tictactoe.c
+	rm tictactoe
+	rm tictactoe.c.orig
 
