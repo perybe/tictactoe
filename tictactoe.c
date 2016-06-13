@@ -1,3 +1,4 @@
+	//incluindo bibliotecas 
 #include <stdio.h>
 #include "conio.h"
 #include <string.h>
@@ -6,23 +7,23 @@
 int posimax, posimin;
 
 int main()
-{
+{	//botando cor
     int GdBgColor = 6;
     system("clear");
     setbgrcolor(GdBgColor);
     int i, partidas, posicao, cont, final,jogada, soma1 = 0, soma2 = 0;
     char grade[11];
     char nome[50], c;
-
-    puts("Forneēa seu nome: ");
+	//pegando nome do jogador
+    puts("Forneça seu nome: ");
     fgets(nome, 49, stdin);
     nome[strlen(nome)- 1] = '\0';
     printf("\n");
 
     partidas = -1;
     while (partidas < 0)
-    {
-        printf("informe o nśmero de partidas que vocź quer jogar: ");
+    {	//perguntando a quantidade de partidas
+        printf("informe o número de partidas que vocé quer jogar: ");
         scanf("%i", &partidas);
         scanf("%c",&c);
 
@@ -31,7 +32,7 @@ int main()
 
     while ( partidas != 0)
     {
-
+	// criando a tabela
         for(i = 1; i < 10; i++)
         {
             grade[i] = ' ';
@@ -41,7 +42,8 @@ int main()
         printf("\n");
 
         print_grade(grade);
-
+	
+	//verificando se alguem ganhou
         for(i = 1; i < 10; i++)
         {
             final = checaVitoria(grade);
@@ -66,7 +68,7 @@ int main()
             {
                 cont = 0;
 
-
+		// pergutando a jogada do jogador
                 while ( cont != 1)
                 {
                     printf("Jogada do jogador %s:\n", nome);
@@ -87,7 +89,7 @@ int main()
                 }
             }
 
-
+		//Computador fazendo sua jogada
             if ((final == 0) && (i != 9))
             {
                 posimax = -1;
@@ -106,7 +108,7 @@ int main()
                 }
             }
             else
-            {
+            {	//finalizando o jogo
                 printf("Deu velha!\n");
                 print_grade(grade);
                 printf("\n");
@@ -116,7 +118,7 @@ int main()
 
         partidas = partidas - 1;
     }
-
+		//vendo quem ganhou mais vezes 
     printf( "O jogador %s venceu %i vezes e o jogador O venceu %i vezes\n", nome, soma1, soma2);
 
 

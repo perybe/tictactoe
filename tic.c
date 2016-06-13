@@ -107,4 +107,3 @@ int minimax(int player, char grade[], int n)
         return max;
     else return min;
 }
-
