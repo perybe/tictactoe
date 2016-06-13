@@ -1,6 +1,6 @@
 #include "libtic.h"
 
-int checaEmpate(char grade[])
+int checaEmpate(char grade[])	
 {
     if ((checaVitoria(grade) == 0) && (grade[1] != ' ') && (grade[2] != ' ') &&
             (grade[3] != ' ') && (grade[4] != ' ') && (grade[5] != ' ') &&
