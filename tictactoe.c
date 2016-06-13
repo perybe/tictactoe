@@ -10,25 +10,24 @@ int main()
     int GdBgColor = 6;
     system("clear");
     setbgrcolor(GdBgColor);
-    int i, partidas, posicao, cont, final,jogada, soma1 = 0, soma2 = 0, j;
+    int i, partidas, posicao, cont, final,jogada, soma1 = 0, soma2 = 0;
     char grade[11];
-    char nome[50];
+    char nome[50], c;
 
-    puts("Forneça seu nome: ");
+    puts("Forneēa seu nome: ");
     fgets(nome, 49, stdin);
     nome[strlen(nome)- 1] = '\0';
     printf("\n");
 
-    printf("informe o número de partidas que você quer jogar: ");
-    j = scanf("%i", &partidas);
-    printf("\n");
-
-    while (j == 1)
+    partidas = -1;
+    while (partidas < 0)
     {
-        printf("jogada invalida\n");
-        printf("informe o número de partidas que você quer jogar: ");
-        j = scanf("%i", &partidas);
+        printf("informe o nśmero de partidas que vocź quer jogar: ");
+        scanf("%i", &partidas);
+        scanf("%c",&c);
+
     }
+
 
     while ( partidas != 0)
     {
@@ -39,6 +38,7 @@ int main()
         }
 
         printf("Jogo da Velha:\n");
+        printf("\n");
 
         print_grade(grade);
 
@@ -71,6 +71,8 @@ int main()
                 {
                     printf("Jogada do jogador %s:\n", nome);
                     scanf("%d", &posicao);
+                    scanf("%c",&c);
+
 
                     if(( posicao <= 9) && (posicao >= 1) && (grade[posicao] == ' '))
                     {
@@ -136,5 +138,5 @@ int main()
 
     printf("FIM DO JOGO\n");
 
-    return 0;
+ return 0; 
 }
