@@ -10,8 +10,3 @@ void print_grade(char b[10])
 	printf(" --+--+--\n");
 	printf(" %c |%c |%c\n",b[7],b[8],b[9]);
 }
-
-
-
-
-
