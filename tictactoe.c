@@ -1,15 +1,17 @@
+//Pedro Bergamin (pedro.bergamin@acad.pucrs.br)	e Rebeca Gomes (rebeca.gomes@acad.pucrs.br)
+
 //incluindo bibliotecas
 #include <stdio.h>
 #include "conio.h"
 #include <string.h>
 #include "libtic.h"
 
-int posimax, posimin;
+int posimin;
 
 int main()
 {   //botando cor
     int GdBgColor = 6;
-    system("clear");
+    system("clear");	// limpa a tela para o jogo ficar no inicio do terminal
     setbgrcolor(GdBgColor);
     int i, partidas, posicao, cont, final, jogada, soma1 = 0, soma2 = 0;
     char grade[10];
@@ -25,7 +27,7 @@ int main()
     while (partidas < 0)
 
     {   //perguntando a quantidade de partidas
-        printf("informe o número de partidas que vocé quer jogar: ");
+        printf("informe o número de partidas que você quer jogar: ");
         scanf("%i", &partidas);
         scanf("%c",&c);
 
@@ -48,12 +50,12 @@ int main()
         printf(" \\__|_|\\___|\\__\\__,_|\\___|\\__\\___/ \\___|\n");
         printf("\n");
 
-        print_grade(grade);
+        print_grade(grade);	//tic1.c
 
         //verificando se alguem ganhou
         for(i = 1; i < 10; i++)
         {
-            final = checaVitoria(grade);
+            final = checaVitoria(grade);	//tic2.c
 
             if (final == 1)
             {
@@ -99,25 +101,20 @@ int main()
             //Computador fazendo sua jogada
             if ((final == 0) && (i != 9))
             {
-                posimax = -1;
                 posimin = -1;
-                if(i % 2 == 1)
+
+                if(i % 2 == 0)
                 {
-                    jogada = minimax(1, grade, 0);
-                    //printf("A melhor jogada para o jogador X e: %d\n", posimax);
-                }
-                else
-                {
-                    jogada = minimax(2, grade, 0);
+                    jogada = mini(2, grade, 0);	//tic4.c
                     grade[posimin] = 'O';
-                    print_grade(grade);
+                    print_grade(grade);		//tic1.c
 
                 }
             }
             else
             {   //finalizando o jogo
                 printf("Deu velha!\n");
-                print_grade(grade);
+                print_grade(grade);		//tic1.c
                 printf("\n");
             }
 

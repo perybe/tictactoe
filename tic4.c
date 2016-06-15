@@ -1,21 +1,21 @@
 #include "libtic.h"
 
-int posimax, posimin;
+int posimin;
 
-int minimax(int player, char grade[], int n)
+int mini(int player, char grade[], int n)
 {
     int i, res, j;
 
     int max = -999;
     int min = 999;
 
-    int final = checaVitoria(grade);
+    int final = checaVitoria(grade);		//tic2.c
 		//verificando se ele tem de fazer alguma jogada
     if (final == 1)
         return 1;
     else if (final == (-1))
         return -1;
-    else if (final = checaEmpate(grade))
+    else if (final = checaEmpate(grade))	//tic3.c
         return 0;
 
     for (i = 1; i < 10; i++)
@@ -25,27 +25,29 @@ int minimax(int player, char grade[], int n)
             if(player == 2)
             {
                 grade[i] = 'O';
-                res = minimax(1, grade, n + 1);
+                res = mini(1, grade, n + 1);
 
                 grade[i] = ' ';
 
                 if(res < min)
                 {
                     min = res;
+
                     if (n == 0)
+		    {
                         posimin = i;
+	 	    }
                 }
             }
             else if (player == 1)
             {
                 grade[i] = 'X';
-                res = minimax(2, grade, n + 1);
+                res = mini(2, grade, n + 1);
                 grade[i] = ' ';
+
                 if (res > max)
                 {
                     max = res;
-                    if (n == 0)
-                        posimax = i;
                 }
             }
         }
